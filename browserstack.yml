@@ -54,7 +54,7 @@ platforms:
     deviceName: Vivo Y21
     platformVersion: 11.0
 
-parallelsPerPlatform: 1
+parallelsPerPlatform: 15
 
 browserstackLocal: true # <boolean> (Default false)
 
