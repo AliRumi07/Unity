@@ -18,22 +18,34 @@ app: ./Check_IP.apk
 
 platforms:
   - platformName: android
-    deviceName: Samsung Galaxy S22 Ultra
-    platformVersion: 12.0
-  - platformName: android
-    deviceName: Google Pixel 7 Pro
-    platformVersion: 13.0
-  - platformName: android
-    deviceName: OnePlus 9
-    platformVersion: 11.0
-  - platformName: android
     deviceName: Google Pixel 9 Pro
     platformVersion: 15.0
   - platformName: android
     deviceName: Xiaomi Redmi Note 11
     platformVersion: 11.0
+  - platformName: android
+    deviceName: Motorola Moto G71 5G
+    platformVersion: 11.0
+  - platformName: android
+    deviceName: Google Pixel 6 Pro
+    platformVersion: 13.0
+  - platformName: android
+    deviceName: OnePlus 11R
+    platformVersion: 13.0
+  - platformName: android
+    deviceName: Vivo Y50
+    platformVersion: 10.0
+  - platformName: android
+    deviceName: Google Pixel 4 XL
+    platformVersion: 10.0
+  - platformName: android
+    deviceName: OnePlus 7T
+    platformVersion: 10.0
+  - platformName: android
+    deviceName: Vivo Y21
+    platformVersion: 11.0
     
-parallelsPerPlatform: 5
+parallelsPerPlatform: 1
 
 browserstackLocal: true # <boolean> (Default false)
 
