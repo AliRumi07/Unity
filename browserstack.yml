@@ -4,9 +4,9 @@
 userName: qasa_fTiWsR
 accessKey: xsDhUrpYDR9xsL3fopdS
 
-projectName: BrowserStack Samples
+projectName: Unity
 
-buildName: browserstack build
+buildName: Google Pixel 9 Pro
 
 buildIdentifier: '#${BUILD_NUMBER}' # Supports strings along with either/both ${expression}
 
@@ -20,15 +20,9 @@ platforms:
   - platformName: android
     deviceName: Google Pixel 9 Pro
     platformVersion: 15.0
-  - platformName: android
-    deviceName: Xiaomi Redmi Note 11
-    platformVersion: 11.0
-  - platformName: android
-    deviceName: Motorola Moto G71 5G
-    platformVersion: 11.0
   
     
-parallelsPerPlatform: 3
+parallelsPerPlatform: 1
 
 browserstackLocal: true # <boolean> (Default false)
 
