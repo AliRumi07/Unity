@@ -20,10 +20,6 @@ platforms:
   - platformName: android
     deviceName: Samsung Galaxy S22 Ultra
     platformVersion: 12.0
-  - platformName: android
-    deviceName: Google Pixel 3
-    platformVersion: 9.0
-  
     
 parallelsPerPlatform: 1
 
