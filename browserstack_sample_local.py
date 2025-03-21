@@ -1,60 +1,40 @@
-from flask import Flask, jsonify
-from threading import Thread
+from flask import Flask
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
-from appium.webdriver.common.appiumby import AppiumBy
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import time
+import threading
 
-# Flask app
 app = Flask(__name__)
 
-# Global variable to track test status
-status = {"appium_status": "Initializing", "error": None}
+# Flag to check if script is running
+script_running = True
 
-# Define the /status endpoint
-@app.route('/status', methods=['GET'])
-def get_status():
-    return jsonify(status)
+@app.route('/')
+def status():
+    return "Script is running" if script_running else "Script has stopped"
 
-# Function to run the Appium test
-def run_appium_test():
-    global status
-    try:
-        options = UiAutomator2Options().load_capabilities({
-            "deviceName": "Google Pixel 3",
-            "platformName": "Android",
-            "platformVersion": "9.0",
-            "appPackage": "com.android.settings",
-            "appActivity": ".Settings",
-            "automationName": "UiAutomator2"
-        })
+def run_appium_script():
+    global script_running
+    options = UiAutomator2Options().load_capabilities({
+        "deviceName": "Google Pixel 3",
+        "platformName": "android",
+        "platformVersion": "9.0",
+    })
 
-        # Start Appium session
-        driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", options=options)
-        status["appium_status"] = "Running"
+    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", options=options)
 
-        # Wait for an element (Example: 'Network & internet' settings)
-        wait = WebDriverWait(driver, 10)
-        element = wait.until(EC.presence_of_element_located(
-            (AppiumBy.XPATH, "//android.widget.TextView[@text='Network & internet']")
-        ))
-        element.click()
-        
-        status["appium_status"] = "Test completed"
+    # Wait for 60 seconds
+    time.sleep(60)
 
-    except Exception as e:
-        status["appium_status"] = "Error"
-        status["error"] = str(e)
+    # Invoke driver.quit() after the test is done to indicate that the test is completed.
+    driver.quit()
+    
+    # Mark script as stopped
+    script_running = False
 
-    finally:
-        driver.quit()
-
-# Start Appium test in a separate thread
-thread = Thread(target=run_appium_test)
-thread.start()
-
-# Start Flask on 0.0.0.0:8080
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8080, debug=False)
+    # Run Appium script in a separate thread
+    threading.Thread(target=run_appium_script, daemon=True).start()
+
+    # Start Flask server
+    app.run(host="0.0.0.0", port=8080)
