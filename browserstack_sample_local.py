@@ -20,9 +20,6 @@ def run_appium_script():
             "deviceName": "Google Pixel 3",
             "platformName": "android",
             "platformVersion": "9.0",
-            "deviceName: Samsung Galaxy S22 Ultra",
-            "platformName": "android",
-            "platformVersion": "12.0",
             
         })
 
