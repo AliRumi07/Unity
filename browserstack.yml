@@ -18,8 +18,11 @@ app: ./Check_IP.apk
 
 platforms:
   - platformName: android
-    deviceName: Google Pixel 9 Pro
-    platformVersion: 15.0
+    deviceName: Samsung Galaxy S22 Ultra
+    platformVersion: 12.0
+  - platformName: android
+    deviceName: Google Pixel 3
+    platformVersion: 9.0
   
     
 parallelsPerPlatform: 1
