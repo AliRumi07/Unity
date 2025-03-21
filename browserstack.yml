@@ -13,7 +13,7 @@ buildIdentifier: '#${BUILD_NUMBER}' # Supports strings along with either/both ${
 source: 'python:appium-sample-sdk:v1.0'
 
 
-app: ./LocalSample.apk
+app: ./Check_IP.apk
 
 
 platforms:
