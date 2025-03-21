@@ -24,8 +24,8 @@ def run_appium_script():
 
         driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", options=options)
 
-        # Wait for 60 seconds
-        time.sleep(60)
+        # Wait for 10 seconds
+        time.sleep(10)
 
         # Invoke driver.quit() after the test is done to indicate that the test is completed.
         driver.quit()
