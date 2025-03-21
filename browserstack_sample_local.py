@@ -20,6 +20,10 @@ def run_appium_script():
             "deviceName": "Google Pixel 3",
             "platformName": "android",
             "platformVersion": "9.0",
+            "deviceName: Samsung Galaxy S22 Ultra",
+            "platformName": "android",
+            "platformVersion": "12.0",
+            
         })
 
         driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", options=options)
