@@ -1,47 +1,31 @@
-from appium import webdriver
-from appium.webdriver.common.appiumby import AppiumBy
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
-import os
+# =============================
+# Set BrowserStack Credentials
 
-# BrowserStack credentials
-userName = "fasa_hAS0f8"
-accessKey = "jb9xTf3Hz6RpveKFpqqz"
+userName: fasa_hAS0f8
+accessKey: jb9xTf3Hz6RpveKFpqqz
 
-# Set up desired capabilities
-desired_caps = {
-    # BrowserStack specific capabilities
-    "browserstack.user": userName,
-    "browserstack.key": accessKey,
-    "app": "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c", # Replace with your app ID
-    "project": "BrowserStack Samples",
-    "build": "browserstack build #1",
-    "name": "60 second test",
-    "browserstack.debug": False,
-    "browserstack.networkLogs": False,
-    "browserstack.local": True,
-    
-    # Device capabilities
-    "deviceName": "Samsung Galaxy S22 Ultra",
-    "platformName": "android",
-    "platformVersion": "12.0"
-}
+projectName: BrowserStack Samples
 
-# Initialize the driver
-print("Initializing driver...")
-driver = webdriver.Remote(
-    command_executor="https://hub-cloud.browserstack.com/wd/hub",
-    desired_capabilities=desired_caps
-)
+buildName: browserstack build
 
-try:
-    # Just wait for 60 seconds instead of performing interactions
-    print("Starting 60-second test run...")
-    time.sleep(60)
-    print("Test completed after 60 seconds")
-    
-finally:
-    # Always quit the driver to end the session
-    print("Ending test session...")
-    driver.quit()
+buildIdentifier: '#${BUILD_NUMBER}' # Supports strings along with either/both ${expression}
+
+source: 'python:appium-sample-sdk:v1.0'
+
+
+app: ./LocalSample.apk
+
+
+platforms:
+  - deviceName: Samsung Galaxy S22 Ultra
+    osVersion: 12.0
+    platformName: android
+
+
+parallelsPerPlatform: 1
+
+browserstackLocal: true # <boolean> (Default false)
+
+debug: false # <boolean> # Set to true if you need screenshots for every selenium command ran
+networkLogs: false # <boolean> Set to true to enable HAR logs capturing
+consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
