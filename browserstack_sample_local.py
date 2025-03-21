@@ -25,7 +25,7 @@ def run_appium_script():
         driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", options=options)
 
         # Wait for 10 seconds
-        time.sleep(10)
+        time.sleep(1)
 
         # Invoke driver.quit() after the test is done to indicate that the test is completed.
         driver.quit()
@@ -33,7 +33,7 @@ def run_appium_script():
         print(f"Error occurred: {e}")
     finally:
         # Schedule the script to run again after 2 minutes
-        threading.Timer(10, run_appium_script).start()
+        threading.Timer(1, run_appium_script).start()
 
 if __name__ == '__main__':
     # Run Appium script for the first time
