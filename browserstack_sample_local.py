@@ -15,25 +15,28 @@ def status():
 
 def run_appium_script():
     global script_running
-    options = UiAutomator2Options().load_capabilities({
-        "deviceName": "Google Pixel 3",
-        "platformName": "android",
-        "platformVersion": "9.0",
-    })
+    try:
+        options = UiAutomator2Options().load_capabilities({
+            "deviceName": "Google Pixel 3",
+            "platformName": "android",
+            "platformVersion": "9.0",
+        })
 
-    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", options=options)
+        driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", options=options)
 
-    # Wait for 60 seconds
-    time.sleep(60)
+        # Wait for 60 seconds
+        time.sleep(60)
 
-    # Invoke driver.quit() after the test is done to indicate that the test is completed.
-    driver.quit()
-    
-    # Mark script as stopped
-    script_running = False
+        # Invoke driver.quit() after the test is done to indicate that the test is completed.
+        driver.quit()
+    except Exception as e:
+        print(f"Error occurred: {e}")
+    finally:
+        # Schedule the script to run again after 2 minutes
+        threading.Timer(120, run_appium_script).start()
 
 if __name__ == '__main__':
-    # Run Appium script in a separate thread
+    # Run Appium script for the first time
     threading.Thread(target=run_appium_script, daemon=True).start()
 
     # Start Flask server
