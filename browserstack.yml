@@ -28,7 +28,7 @@ platforms:
     platformVersion: 11.0
   
     
-parallelsPerPlatform: 2
+parallelsPerPlatform: 3
 
 browserstackLocal: true # <boolean> (Default false)
 
