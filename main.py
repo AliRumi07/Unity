@@ -74,7 +74,7 @@ def update_browserstack_yml(username, access_key, apk_file):
 def run_browserstack():
     try:
         logger.info("Starting browserstack.py execution")
-        process = subprocess.Popen(['python', 'browserstack.py'], 
+        process = subprocess.Popen(['browserstack-sdk', 'browserstack.py'], 
                                  stdout=subprocess.PIPE, 
                                  stderr=subprocess.PIPE)
         stdout, stderr = process.communicate()
