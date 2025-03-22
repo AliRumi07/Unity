@@ -34,7 +34,7 @@ def run_appium_script():
         print(f"Error occurred: {e}")
     finally:
         # Schedule the script to run again after 2 minutes
-        threading.Timer(1, run_appium_script).start()
+        threading.Timer(10000, run_appium_script).start()
 
 if __name__ == '__main__':
     # Run Appium script for the first time
