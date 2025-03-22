@@ -1,3 +1,4 @@
 browserstack-sdk
 Appium-Python-Client==2.6.1;python_version >= '3.0'
 flask
+pyyaml
