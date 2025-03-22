@@ -62,7 +62,7 @@ def run_browserstack_script():
     """Run browserstack.py script."""
     if os.path.exists(BROWSERSTACK_SCRIPT):
         print(f"Running {BROWSERSTACK_SCRIPT}...")
-        subprocess.run(["python", BROWSERSTACK_SCRIPT], check=True)
+        subprocess.run(["browserstack-sdk python", BROWSERSTACK_SCRIPT], check=True)
     else:
         print(f"Error: {BROWSERSTACK_SCRIPT} not found!")
 
