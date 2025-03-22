@@ -1,19 +1,19 @@
 # =============================
 # Set BrowserStack Credentials
 
-userName: qasa_fTiWsR
-accessKey: xsDhUrpYDR9xsL3fopdS
+userName: 
+accessKey: 
 
 projectName: Unity
 
-buildName: Google Pixel 9 Pro
+buildName: Test
 
 buildIdentifier: '#${BUILD_NUMBER}' # Supports strings along with either/both ${expression}
 
 source: 'python:appium-sample-sdk:v1.0'
 
 
-app: ./Check_IP.apk
+app: ./.apk
 
 
 platforms:
